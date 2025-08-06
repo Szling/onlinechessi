@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbwopf6dvcfep"]
+
+[ext_resource type="Script" path="res://World/yggdrasil.gd" id="1_nm0sg"]
+[ext_resource type="PackedScene" uid="uid://drm5pflrj34kn" path="res://UI/main_menu.tscn" id="1_u45e0"]
+
+[node name="Yggdrasil" type="Node3D" groups=["Yggdrasil"]]
+script = ExtResource("1_nm0sg")
+
+[node name="SoundHolder" type="Node" parent="."]
+
+[node name="HudHolder" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="HudHolder" groups=["MainMenu"] instance=ExtResource("1_u45e0")]
