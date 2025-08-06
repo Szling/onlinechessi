@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ktjb0vlcjv3n"]
+
+[ext_resource type="Script" path="res://Gameplay/Pieces/StateMachines/sit.gd" id="1_ugene"]
+[ext_resource type="Script" path="res://Gameplay/Pieces/StateMachines/rise.gd" id="2_y3j0x"]
+[ext_resource type="Script" path="res://Gameplay/Pieces/StateMachines/fly.gd" id="3_5cvh0"]
+[ext_resource type="Script" path="res://Gameplay/Pieces/StateMachines/fall.gd" id="4_6pbt4"]
+
+[node name="StateMachine" type="Node"]
+
+[node name="Sit" type="Node" parent="."]
+script = ExtResource("1_ugene")
+
+[node name="Rise" type="Node" parent="."]
+script = ExtResource("2_y3j0x")
+
+[node name="Fly" type="Node" parent="." node_paths=PackedStringArray("fall_state")]
+script = ExtResource("3_5cvh0")
+fall_state = NodePath("../Fall")
+
+[node name="Fall" type="Node" parent="." node_paths=PackedStringArray("sit_state")]
+script = ExtResource("4_6pbt4")
+sit_state = NodePath("../Sit")

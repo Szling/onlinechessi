@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://7mb1kc408div"]
+
+[ext_resource type="ArrayMesh" uid="uid://gbn7btc5c6jo" path="res://Assets/Models/Meshes/Knight.res" id="1_4kqwx"]
+[ext_resource type="Script" path="res://Gameplay/Pieces/knight.gd" id="1_nojyy"]
+[ext_resource type="PackedScene" uid="uid://ktjb0vlcjv3n" path="res://Gameplay/Pieces/StateMachines/state_machine.tscn" id="3_dbpbd"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0o7gr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1cgu"]
+size = Vector3(0.400391, 0.251556, 0.5383)
+
+[node name="Knight" type="CharacterBody3D"]
+collision_mask = 0
+script = ExtResource("1_nojyy")
+my_type = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_4kqwx")
+
+[node name="TouchMark" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90099, -0.0707697)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00931, 0)
+shape = SubResource("CylinderShape3D_0o7gr")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965858, 0.259072, 0, -0.259072, 0.965858, 0, 1.57244, -0.483488)
+shape = SubResource("BoxShape3D_j1cgu")
+
+[node name="StateMachine" parent="." instance=ExtResource("3_dbpbd")]

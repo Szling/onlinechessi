@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://csatp3mmgbf61"]
+
+[ext_resource type="Script" path="res://Gameplay/Pieces/pawn.gd" id="1_euf54"]
+[ext_resource type="ArrayMesh" uid="uid://x5r6ckpfc8w3" path="res://Assets/Models/Meshes/Pawn.res" id="1_wa75b"]
+[ext_resource type="PackedScene" uid="uid://ktjb0vlcjv3n" path="res://Gameplay/Pieces/StateMachines/state_machine.tscn" id="3_rm6jv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jkmfe"]
+height = 1.76
+
+[node name="Pawn" type="CharacterBody3D"]
+collision_mask = 0
+script = ExtResource("1_euf54")
+my_type = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_wa75b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88, 0)
+shape = SubResource("CylinderShape3D_jkmfe")
+
+[node name="TouchMark" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7603, 0)
+
+[node name="StateMachine" parent="." instance=ExtResource("3_rm6jv")]

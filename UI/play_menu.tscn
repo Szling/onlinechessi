@@ -1,0 +1,140 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw0qx8ivw4rvr"]
+
+[ext_resource type="Theme" uid="uid://dfneswncb1u2w" path="res://UI/Themes/Menus.tres" id="1_47a5a"]
+[ext_resource type="Script" path="res://UI/play_menu.gd" id="2_bnd81"]
+[ext_resource type="Theme" uid="uid://dkiyugcentq06" path="res://UI/Themes/4w_.tres" id="3_nnvii"]
+[ext_resource type="Theme" uid="uid://b3apk0w6dopuw" path="res://UI/Themes/3w_.tres" id="4_nseyp"]
+
+[node name="PlayMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_47a5a")
+script = ExtResource("2_bnd81")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Open" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_nnvii")
+text = "Actions"
+
+[node name="FixedSpacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Body" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+scroll_horizontal_custom_step = 128.0
+scroll_vertical_custom_step = 128.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Body"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BecomeWhite" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nseyp")
+text = "Become White"
+
+[node name="FixedSpacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BecomeBlack" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nseyp")
+text = "Become Black"
+
+[node name="FixedSpacer2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AbandonColor" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nseyp")
+text = "Abandon Color"
+
+[node name="FixedSpacer3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ClearColors" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nseyp")
+text = "Clear Colors"
+
+[node name="FixedSpacer4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FixedSpacer5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ToMain" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nseyp")
+text = "Return to Main"
+
+[node name="Prototype" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nseyp")
+text = "Placeholder"
+
+[node name="FixedSpacer" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="MSGBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer/BecomeWhite" to="." method="_on_become_white_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer/BecomeBlack" to="." method="_on_become_black_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer/AbandonColor" to="." method="_on_abandon_color_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer/ClearColors" to="." method="_on_clear_colors_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Body/VBoxContainer/ToMain" to="." method="_on_to_main_pressed"]

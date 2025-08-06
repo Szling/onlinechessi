@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ilhiqs16wdfd"]
+
+[ext_resource type="Script" path="res://UI/Decor/frame.gd" id="1_yb642"]
+[ext_resource type="Theme" uid="uid://dfneswncb1u2w" path="res://UI/Themes/Menus.tres" id="2_njtad"]
+[ext_resource type="Texture2D" uid="uid://bldbyr6ahmdmx" path="res://Assets/Sprites/LeftFrame.png" id="2_umtyd"]
+[ext_resource type="Texture2D" uid="uid://ci1xgf866my4q" path="res://Assets/Sprites/CenterFrame.png" id="3_cdgca"]
+[ext_resource type="Texture2D" uid="uid://c1y11yojgol4b" path="res://Assets/Sprites/RightFrame.png" id="4_g5qm0"]
+
+[node name="Frame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_yb642")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 192.0
+scale = Vector2(0.334, 0.334)
+mouse_filter = 2
+theme = ExtResource("2_njtad")
+
+[node name="Left" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_umtyd")
+
+[node name="Center" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+texture = ExtResource("3_cdgca")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_g5qm0")

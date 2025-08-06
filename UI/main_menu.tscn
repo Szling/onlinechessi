@@ -1,0 +1,283 @@
+[gd_scene load_steps=9 format=3 uid="uid://drm5pflrj34kn"]
+
+[ext_resource type="Theme" uid="uid://dfneswncb1u2w" path="res://UI/Themes/Menus.tres" id="1_y7k47"]
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="2_ctrt5"]
+[ext_resource type="Theme" uid="uid://ba1p2dthdtt7r" path="res://UI/Themes/1w_.tres" id="3_liier"]
+[ext_resource type="Theme" uid="uid://b3apk0w6dopuw" path="res://UI/Themes/3w_.tres" id="4_qopch"]
+[ext_resource type="Script" path="res://UI/connection_menu.gd" id="5_ntovd"]
+[ext_resource type="Theme" uid="uid://ckbnd1ixetg37" path="res://UI/Themes/2w_.tres" id="6_h586b"]
+[ext_resource type="PackedScene" uid="uid://ilhiqs16wdfd" path="res://UI/Decor/frame.tscn" id="7_p2orp"]
+[ext_resource type="Script" path="res://UI/error_msg.gd" id="8_jvunv"]
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y7k47")
+color = Color(1, 0.682353, 0, 1)
+script = ExtResource("2_ctrt5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VSpacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_liier")
+text = "Exit"
+
+[node name="HSpacer" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ConnectionLost" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Connection Lost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSpacer" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Host" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_qopch")
+text = "Host Game"
+
+[node name="VSpacer2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Connect" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_qopch")
+text = "Connect to Game"
+
+[node name="VSpacer3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSpacer2" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Connection Menu" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.682353, 0, 1)
+script = ExtResource("5_ntovd")
+
+[node name="MarginContainer" type="MarginContainer" parent="Connection Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Connection Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Connection Menu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VSpacer" type="Control" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Back" type="Button" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_liier")
+text = "Back"
+
+[node name="FixedSpacer" type="Control" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HSpacer" type="Control" parent="Connection Menu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Connection Menu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VSpacer" type="Control" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IPInput" type="HBoxContainer" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer/IPInput"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme = ExtResource("6_h586b")
+text = "IP Adress :"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer/IPInput"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme = ExtResource("1_y7k47")
+placeholder_text = "enter IP here"
+alignment = 1
+caret_blink = true
+
+[node name="Frame" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer/IPInput/LineEdit" instance=ExtResource("7_p2orp")]
+layout_mode = 1
+
+[node name="VSpacer2" type="Control" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PortInput" type="HBoxContainer" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer/PortInput"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme = ExtResource("6_h586b")
+text = "Port :
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer/PortInput"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+placeholder_text = "enter port here"
+alignment = 1
+
+[node name="Frame" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer/PortInput/LineEdit" instance=ExtResource("7_p2orp")]
+layout_mode = 1
+
+[node name="VSpacer3" type="Control" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DoTheThing" type="Button" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_qopch")
+text = "Do the thing"
+
+[node name="VSpacer4" type="Control" parent="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSpacer2" type="Control" parent="Connection Menu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ErrorMsg" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.698039)
+script = ExtResource("8_jvunv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ErrorMsg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VSpacer" type="Control" parent="ErrorMsg/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="ErrorMsg/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 32
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSpacer2" type="Control" parent="ErrorMsg/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ErrorMsg/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSpacer" type="Control" parent="ErrorMsg/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Close" type="Button" parent="ErrorMsg/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_liier")
+text = "Close"
+
+[node name="HSpacer2" type="Control" parent="ErrorMsg/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSpacer3" type="Control" parent="ErrorMsg/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer2/Back" to="Connection Menu" method="_on_back_pressed"]
+[connection signal="pressed" from="Connection Menu/MarginContainer/HBoxContainer/VBoxContainer/ButtonContainer/DoTheThing" to="Connection Menu" method="_on_do_the_thing_pressed"]
+[connection signal="pressed" from="ErrorMsg/VBoxContainer/HBoxContainer/Close" to="ErrorMsg" method="_on_close_pressed"]

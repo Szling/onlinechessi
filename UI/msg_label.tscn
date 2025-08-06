@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3vc3qul55ooc"]
+
+[ext_resource type="Script" path="res://UI/msg_label.gd" id="1_neef3"]
+
+[sub_resource type="Animation" id="Animation_beqwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e2ae2"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lsavq"]
+_data = {
+"RESET": SubResource("Animation_beqwk"),
+"fade": SubResource("Animation_e2ae2")
+}
+
+[node name="MSGLabel" type="Label"]
+custom_minimum_size = Vector2(64, 64)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Placehodler"
+horizontal_alignment = 1
+autowrap_mode = 2
+script = ExtResource("1_neef3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lsavq")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cldmrh8kqt8o"]
+
+[ext_resource type="Script" path="res://Gameplay/Pieces/rook.gd" id="1_5ti6s"]
+[ext_resource type="ArrayMesh" uid="uid://dj4rg0brtn4mv" path="res://Assets/Models/Meshes/Rook.res" id="2_up2ud"]
+[ext_resource type="PackedScene" uid="uid://ktjb0vlcjv3n" path="res://Gameplay/Pieces/StateMachines/state_machine.tscn" id="3_ojnrm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ny4m5"]
+height = 2.6
+
+[node name="Rook" type="CharacterBody3D"]
+collision_mask = 0
+script = ExtResource("1_5ti6s")
+my_type = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_up2ud")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30001, 0)
+shape = SubResource("CylinderShape3D_ny4m5")
+
+[node name="TouchMark" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3777, 0)
+
+[node name="StateMachine" parent="." instance=ExtResource("3_ojnrm")]
